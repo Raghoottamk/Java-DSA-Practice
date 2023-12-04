@@ -1,31 +1,27 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class Q6_Josephus_usingQueue {
-   public Q6_Josephus_usingQueue() {
-   }
+   
 
-   public static int findTheWinner(int var0, int var1) {
-      LinkedList var2 = new LinkedList();
-
-      int var3;
-      for(var3 = 1; var3 <= var0; ++var3) {
-         var2.add(var3);
+   public static int findTheWinner(int n, int k) {
+      Queue<Integer> q = new LinkedList<>();
+      for(int i = 1;i<=n;i++){
+         q.add(i);
       }
-
-      while(var2.size() != 1) {
-         for(var3 = var1; var3 > 1; --var3) {
-            int var4 = (Integer)var2.peek();
-            var2.remove();
-            var2.add(var4);
+      while(!(q.size() == 1)){
+         int counter = k;
+         while(counter > 1){
+            int x = q.peek();
+            q.remove();
+            q.add(x);
+            counter--;
          }
-
-         var2.remove();
+         q.remove();
       }
-
-      return (Integer)var2.peek();
+      return q.peek();
    }
 
-   public static void main(String[] var0) {
+   public static void main(String[] args) {
       System.out.println(findTheWinner(5, 2));
    }
 }
