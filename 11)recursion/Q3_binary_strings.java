@@ -24,11 +24,11 @@ public class Q3_binary_strings {
             printString(n-1,1, str + "1");
         }
         // if(lastDigit == 0){
-        //     printString(n-1,0, str);
-        //     printString(n-1,1, str);
+        //     printString(n-1,0, str + "0");
+        //     printString(n-1,1, str + "1");
         // }
         // else{
-        //     printString(n-1,0, str);
+        //     printString(n-1,0, str + "0");
         // }
 
     }

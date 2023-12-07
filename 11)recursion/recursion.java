@@ -6,8 +6,8 @@ public class recursion{
             System.out.print(n+" ");
             return;
         }
-        // System.out.print(n+" ");
-        // Dec(n-1);
+        System.out.print(n+" ");
+        Dec(n-1);
     }
     //problem 2 print numbers in increasing order
     public static void Inc(int n){
