@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Q6_Josephus_usingQueue {
-   
 
    public static int findTheWinner(int n, int k) {
       Queue<Integer> q = new LinkedList<>();
