@@ -76,6 +76,7 @@ public class basicsLinkedList{
     public void addMid(int idx,int data){
         if(idx == 0){
             addFirst(data);
+            size++;
             return;
         }
         Node newNode = new Node(data);
@@ -96,7 +97,7 @@ public class basicsLinkedList{
     public int removeFirst(){
         if(size == 0){
             System.out.println("LL is empty");
-            return Integer.MIN_VALUE;
+            return -1;
         }else if(size == 1){
             //head = tail
             int val =head.data;
