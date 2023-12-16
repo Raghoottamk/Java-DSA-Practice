@@ -30,4 +30,3 @@ public class Q5_retrunNode_of_Loop {
         return slow;//when fast == slow for second time
     }
 }
-
