@@ -12,12 +12,14 @@ class employee{
 		return salary;
 	}
 }
-public class lab3 {
-	employee e1 = new employee(123,"xyz",20000);
-	System.out.println(e1.ID);
-	System.out.println(e1.name);
-	System.out.println(e1.salary);
-	
-	System.out.println(e1.raiseSalary(20));
+public class Employee {
+	public static void main(String[] args) {
+		employee e1 = new employee(123,"xyz",20000);
+		System.out.println(e1.ID);
+		System.out.println(e1.name);
+		System.out.println(e1.salary);
+		
+		System.out.println(e1.raiseSalary(20));
+	}
 
 }
