@@ -10,27 +10,19 @@ public class Q16_double_SLL_recur {
     }
 
     //recursive approach
-    public int getCarry(ListNode head){
-        if(head.next == null){
-            head.val *=2;
-            int carry = head.val/10;
-            head.val %= 10;
-            return carry;
-        }
-        int carry = getCarry(head.next);
-        head.val *=2;
-        head.val += carry;
-        carry = head.val/10;
-        head.val %= 10;
-        return carry;
-    }
     public ListNode doubleIt(ListNode head) {
-        if(head == null) return head;
-        int carry = getCarry(head);
-        if(carry == 0) return head;
-        //if(carry != 0)
-        head = new ListNode(carry, head);
+        if (getCarry(head) == 1){
+            head =  new ListNode(1, head);
+        }
         return head;
+    }
+
+    private int getCarry(ListNode node) {
+        int val = node.val * 2;
+        if (node.next != null)
+        val += getCarry(node.next);
+        node.val = val % 10;
+        return val / 10;
     }
 }
 
