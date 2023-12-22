@@ -12,7 +12,22 @@ public class Q16_Intersection_SLL {
         }
     }
 
-    //Approach -1- normal loops
+    //Approach -1- using Hashset
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        HashSet<ListNode> st=new HashSet<>();
+        while(headA != null) {
+            st.add(headA);
+            headA = headA.next;
+        }
+
+        while(headB != null) {
+            if(st.contains(headB)) return headB;
+            headB = headB.next;
+        }
+        return null;
+    }
+
+    //Approach -2- normal loops
     public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
         
         int cnt1 = 0,cnt2 = 0;
@@ -45,19 +60,17 @@ public class Q16_Intersection_SLL {
         }
         return null;
     }
-    //Approach -2- using Hashset
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        HashSet<ListNode> st=new HashSet<>();
-        while(headA != null) {
-            st.add(headA);
-            headA = headA.next;
+    //optimal approach
+    public ListNode getIntersectionNode2(ListNode head1, ListNode head2) {
+        ListNode d1 = head1;
+        ListNode d2 = head2;
+        
+        while(d1 != d2) {
+            d1 = d1 == null? head2:d1.next;
+            d2 = d2 == null? head1:d2.next;
         }
-
-        while(headB != null) {
-            if(st.contains(headB)) return headB;
-            headB = headB.next;
-        }
-        return null;
+        
+        return d1;
     }
 }
 
