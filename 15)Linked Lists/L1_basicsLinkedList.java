@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class basicsLinkedList{
+public class L1_basicsLinkedList{
     //1- creating a linkedlist
     public static class Node {
         int data;
