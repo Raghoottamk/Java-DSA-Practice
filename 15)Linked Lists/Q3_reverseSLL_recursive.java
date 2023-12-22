@@ -24,7 +24,6 @@ public class Q3_reverseSLL_recursive {
             ListNode front = head.next;
             front.next = head;
             head.next = null;
-
             return newhead;
         }
     }
