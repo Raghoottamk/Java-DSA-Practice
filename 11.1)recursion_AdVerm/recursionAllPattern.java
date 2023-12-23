@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class recursionAllPattern {
@@ -68,17 +69,44 @@ public class recursionAllPattern {
         return list;
     }
 
-    private void backtrack4(List<List<Integer>> list, List<Integer> tempList, int [] nums, boolean [] used){
+    private void backtrack4(List<List<Integer>> list, List<Integer> tempList, int [] nums, boolean []bool){
         if(tempList.size() == nums.length){
             list.add(new ArrayList<>(tempList));
         } else{
             for(int i = 0; i < nums.length; i++){
-                if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) continue;
-                used[i] = true; 
+                if(bool[i] || i > 0 && nums[i] == nums[i-1] && !bool[i - 1]) continue;
+                bool[i] = true; 
                 tempList.add(nums[i]);
-                backtrack4(list, tempList, nums, used);
-                used[i] = false; 
+                backtrack4(list, tempList, nums, bool);
+                bool[i] = false; 
                 tempList.remove(tempList.size() - 1);
+            }
+        }
+    }
+    //approach 2- hashmap
+    public List<List<Integer>> permuteUnique2(int[] nums) {
+        List<List<Integer>> list=new ArrayList<>(); 
+        List<Integer>currlist=new ArrayList<>(); 
+        HashMap<Integer,Integer> map=new HashMap<>();
+        helper(nums,list,currlist,map); 
+        return list;
+    } 
+
+    public static void helper(int []nums,List<List<Integer>> list, List<Integer> currlist,HashMap<Integer,Integer> map){
+        if(currlist.size()==nums.length){ 
+            if(!list.contains(currlist)){
+                list.add(new ArrayList<>(currlist));
+            }
+        return ;
+        }  
+
+        for(int j=0;j<nums.length;j++){ 
+            if(!map.containsKey(j)){
+                map.put(j,1);
+                currlist.add(nums[j]); 
+                helper(nums,list,currlist,map);
+                currlist.remove(currlist.size()-1);
+                map.remove(j);
             }
         }
     }
