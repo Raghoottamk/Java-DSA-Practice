@@ -46,6 +46,36 @@ public class Q4_combination_sum_III {
             n += i;
         }
     }
+
+    //complete recursive way
+    class Solution {
+        public List<List<Integer>> combinationSum3(int k, int n) {
+            List<List<Integer>> list = new ArrayList<>();
+            List<Integer> ds = new ArrayList<>();
+            solve(1,0,k,n,ds,list);
+            return list;
+        }
+        public void solve(int i,int sum,int k,int n,List<Integer> ds,List<List<Integer>> list){
+            //base
+            if(sum > n) return;
+    
+            if(k == 0){
+                if(sum == n){
+                    list.add(new ArrayList<>(ds));
+                }
+                return;
+            }
+    
+            if(i == 10) return;
+            sum += i;
+            ds.add(i);
+            solve(i+1,sum,k-1,n,ds,list);
+            
+            sum -= i;
+            ds.remove(ds.size()-1);
+            solve(i+1,sum,k,n ,ds,list);
+        }
+    }
     public static void main(String[] args) {
         System.out.println(combinationSum3(3, 7));
     }
