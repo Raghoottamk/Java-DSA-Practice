@@ -15,6 +15,13 @@ public class Q3_iterative_postorder {
         Node root;
         // An iterative function to do postorder traversal
         // of a given binary tree
+        /*
+        Time Complexity: O(n)
+        Auxiliary Space: O(n)
+        Method 2: 
+        Push directly root node two times while traversing to the left. 
+        While popping if you find stack top() is same as root then go for root->right else print root.
+         */
         public static List<Integer> postorder(Node root){
             List<Integer> list = new ArrayList<>();
             Stack<Node> stack = new Stack<>();
@@ -26,11 +33,10 @@ public class Q3_iterative_postorder {
                 }
                 
                 // Check for empty stack
-                if(stack.empty()) return list;
+                if(stack.isEmpty()) return list;
+
                 root = stack.pop();
-                
-                if(!stack.empty() && stack.peek() == root) root = root.right;
-                
+                if(!stack.isEmpty() && stack.peek() == root) root = root.right;
                 else {
                     list.add(root.data);
                     root = null;
