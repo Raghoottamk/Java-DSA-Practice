@@ -43,6 +43,7 @@ public class Q2_iterative_Inorder_traversal {
             }
             return list;
         }
+        
     }
     
     public static void main(String[] args) {
@@ -53,6 +54,6 @@ public class Q2_iterative_Inorder_traversal {
         tree.root.left.left = new Node(3);
         tree.root.left.right = new Node(5);
         tree.root.right.left = new Node(2);
-        System.out.println(tree.Inorder(tree.root));//10 8 3 5 2 2 
+        System.out.println(tree.Inorder(tree.root));//3, 8, 5, 10, 2, 17
     }
 }

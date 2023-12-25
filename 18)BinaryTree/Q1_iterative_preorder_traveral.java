@@ -13,9 +13,7 @@ public class Q1_iterative_preorder_traveral {
     }
     public static class BinaryTree{
         Node root;
-        void iterativePreorder(){
-            preorder(root);
-        }
+        
         public static List<Integer> preorder(Node root){
             List<Integer> list = new ArrayList<>();
             if(root == null){
@@ -43,6 +41,7 @@ public class Q1_iterative_preorder_traveral {
             }
             return list;
         }
+
     }
     
     public static void main(String[] args) {
@@ -53,6 +52,6 @@ public class Q1_iterative_preorder_traveral {
         tree.root.left.left = new Node(3);
         tree.root.left.right = new Node(5);
         tree.root.right.left = new Node(2);
-        System.out.println(tree.preorder(tree.root));
+        System.out.println(tree.preorder(tree.root));//10 8 3 5 2 2 
     }
 }

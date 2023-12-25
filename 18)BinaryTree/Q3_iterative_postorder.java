@@ -22,7 +22,7 @@ public class Q3_iterative_postorder {
         Push directly root node two times while traversing to the left. 
         While popping if you find stack top() is same as root then go for root->right else print root.
          */
-        public static List<Integer> postorder(Node root){
+        public static List<Integer> postorder1(Node root){
             List<Integer> list = new ArrayList<>();
             Stack<Node> stack = new Stack<>();
             while(true) {
@@ -42,7 +42,51 @@ public class Q3_iterative_postorder {
                     root = null;
                 }
             }
+        }
+        //using 2 stacks
+        public static List<Integer> postorder2(Node root){
+            List<Integer> list = new ArrayList<>();
+            Stack<Node> s1 = new Stack<>();
+            Stack<Node> s2 = new Stack<>();
+            if(root == null) return list;
+            s1.push(root);
+            while(!s1.isEmpty()){
+                root = s1.pop();
+                s2.add(root);
+                if(root.left != null) s1.push(root.left);
+                if(root.right != null) s1.push(root.right);
+            }
+            while(!s2.isEmpty()){
+                list.add(s2.pop().data);
+            }
+            return list;
+        }
+        //using 1 stack
+        public static List<Integer> postorder3(Node root){
+            List < Integer > list = new ArrayList < > ();
+            if (root == null) return list;
 
+            Stack < Node > st = new Stack < > ();
+            while (root != null || !st.isEmpty()) {
+
+                if (root != null) {
+                    st.push(root);
+                    root = root.left;
+                } else {
+                    Node temp = st.peek().right;
+                    if (temp == null) {
+                        temp = st.peek();
+                        st.pop();
+                        list.add(temp.data);
+                        while (!st.isEmpty() && temp == st.peek().right) {
+                            temp = st.peek();
+                            st.pop();
+                            list.add(temp.data);
+                        }
+                    } else root = temp;
+                }
+            }
+            return list;
         }
     }
     public static void main(String args[]){
@@ -55,6 +99,6 @@ public class Q3_iterative_postorder {
         tree.root.right.left = new Node(2);
  
         System.out.println("Post order traversal of binary tree is :");
-        System.out.println(tree.postorder(tree.root));//[3, 5, 8, 2, 17, 10]
+        System.out.println(tree.postorder1(tree.root));//[3, 5, 8, 2, 17, 10]
     }
 }
