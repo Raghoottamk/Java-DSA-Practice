@@ -22,6 +22,7 @@ public class Q5_Diameter_of_BT {
             return diameter(root) - 1;
             //ATQ we should return the diameter completely including left and right part but without counting the node so -1
         }
+        //TC - O(n^2)
         public int diameter(TreeNode root){
             if(root == null) return 0;
             int leftDiam = diameter(root.left);
@@ -44,6 +45,7 @@ public class Q5_Diameter_of_BT {
     
 
     class Solution2 {
+        //TC-O(n)
         //helper class
         private class Info{
             int ht;

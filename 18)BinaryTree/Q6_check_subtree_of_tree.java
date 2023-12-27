@@ -12,7 +12,7 @@ public class Q6_check_subtree_of_tree {
         }
     }
     public static boolean isSubtree(TreeNode root,TreeNode subroot){
-        if(root == null) return false;
+        if(root == null) return false;//given subroot != null
         if(root.val == subroot.val){
             if(isIdentical(root, subroot)) return true;
         }
