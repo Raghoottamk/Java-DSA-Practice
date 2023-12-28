@@ -15,6 +15,7 @@ Explanation:
 These are the only two combinations.
 
  */
+
 public class Q3_Combination_sum {
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> list = new ArrayList<>();
@@ -46,3 +47,32 @@ public class Q3_Combination_sum {
         combinationSum(candidates,target);
     }
 }
+/*
+the difference b/w list.add(new ArrayList<>(tempList)); and list.add(tempList);
+Key Difference:
+
+In the correct code:
+
+The line list.add(new ArrayList<>(tempList)); creates a new copy of the temporary list tempList before adding it to the final result list list.
+In the code with the bug:
+
+The line list.add(tempList); directly adds the reference to the temporary list tempList to the final result list list.
+Why This Difference Causes the Bug:
+
+The solve function recursively modifies the tempList as it explores different combinations.
+When a reference to tempList is added to the list without copying, subsequent modifications to tempList in the recursion also affect the elements already added to list.
+This leads to incorrect combinations being stored in the final result list list.
+Example:
+
+Consider candidates = [2, 3] and target = 5.
+The correct code would produce list = [[2, 3], [3, 2]], two distinct combinations.
+The code with the bug would produce list = [[2, 3, 2]], an incorrect combination due to modification of the referenced list.
+Correction:
+
+Always create a new copy of the temporary list when adding it to the final result list to ensure that each combination is independent and unaffected by subsequent recursive calls.
+Additional Insights:
+
+This bug highlights the importance of understanding reference vs. value semantics in programming languages.
+Creating copies of objects is crucial when you want to preserve their state and avoid unintended modifications.
+Thorough testing with various inputs can help catch similar issues in code that involves recursion and object manipulation.
+ */
