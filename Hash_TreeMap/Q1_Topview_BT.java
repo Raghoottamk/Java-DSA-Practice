@@ -1,11 +1,12 @@
+package Hash_TreeMap;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
 
-public class Q11_Top_view_of_BT {
-
+public class Q1_Topview_BT {
     class Node{
         int data;
         Node left;
@@ -59,7 +60,7 @@ public class Q11_Top_view_of_BT {
             }
             
             for(Map.Entry<Integer,Integer> e:mp.entrySet()){
-            list.add(e.getValue());
+                list.add(e.getValue());
             }
             return list;
         }
