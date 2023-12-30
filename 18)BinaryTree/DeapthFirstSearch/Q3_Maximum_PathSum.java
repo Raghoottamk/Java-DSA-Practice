@@ -1,6 +1,5 @@
-import javax.swing.tree.TreeNode;
 
-public class Q8_Maximum_PathSum{ 
+public class Q3_Maximum_PathSum{ 
     //Definition for a binary tree node.
     public class TreeNode {
         int val;

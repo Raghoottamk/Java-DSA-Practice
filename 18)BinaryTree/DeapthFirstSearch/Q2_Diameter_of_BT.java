@@ -2,7 +2,7 @@ import java.util.*;
 
 import javax.swing.tree.TreeNode;
 
-public class Q5_Diameter_of_BT {
+public class Q2_Diameter_of_BT {
 
 //Definition for a binary tree node.
     public class TreeNode {
