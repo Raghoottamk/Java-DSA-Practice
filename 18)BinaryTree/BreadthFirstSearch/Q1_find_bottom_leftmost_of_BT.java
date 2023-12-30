@@ -15,7 +15,7 @@ Output = 6
 import java.util.LinkedList;
 import java.util.Queue;
 
-class find_bottom_leftmost_of_BT {   
+class Q1_find_bottom_leftmost_of_BT {   
     public class TreeNode {
         int val;
         TreeNode left;

@@ -65,4 +65,47 @@ public class Q11_Top_view_of_BT {
         }
         
     }
+    class Solution2{
+        //recursive approach
+        static class Pair{
+            int first;
+            int second;
+            
+            Pair(int first, int second){
+                this.first = first;
+                this.second = second;
+            }
+        }
+        static ArrayList<Integer> list = new ArrayList<>();
+        static Map<Integer,Pair> map = new TreeMap<Integer,Pair>();
+        
+        static void helper (Node root, int col, int row){
+            if (root == null)
+                return;
+     
+            if (map.get(col) == null) {
+                map.put(col, new Pair(root.data, row));
+            }
+            else if (map.get(col).second > row) {
+                map.put(col, new Pair(root.data, row));
+            }
+     
+            helper(root.left, col - 1, row + 1);
+            helper(root.right, col + 1, row + 1);
+        }
+        //main function
+        static ArrayList<Integer> topView(Node root){
+            
+            list.clear();
+            map.clear();
+            
+            helper(root, 0, 0);
+     
+            for (Map.Entry<Integer, Pair> entry : map.entrySet()) {
+                System.out.print(entry.getValue().first + " ");
+            }
+            
+            return list;
+        }
+    }
 }
