@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class Q10_letter_case_permutation {
-   public Q10_letter_case_permutation() {
+public class Q11_letter_case_permutation {
+   public Q11_letter_case_permutation() {
    }
 
    public static ArrayList<String> letterCase(String var0, String var1, ArrayList<String> var2) {
