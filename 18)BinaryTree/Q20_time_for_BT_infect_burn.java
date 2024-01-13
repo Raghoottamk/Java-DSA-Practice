@@ -66,39 +66,39 @@ Explanation: At minute 0, the only node in the tree is infected so we return 0.
             }
             return start_infec;
         }
-    }
-    private int findTime(TreeNode start_infec){
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(start_infec);
-        Map<TreeNode,Integer> visited = new HashMap();
-        visited.put(start_infec,1);
-        int time = 0;
-        while(!q.isEmpty()){
-            int sz = q.size();
-            int flag = 0;
-            for(int i = 0; i < sz ; i++){
-                TreeNode curr = q.poll();
-                if(curr.left != null && visited.get(curr.left) == null){
-                    flag = 1;
-                    visited.put(curr.left,1);
-                    q.offer(curr.left);
+        private int findTime(TreeNode start_infec){
+            Queue<TreeNode> q = new LinkedList<>();
+            q.offer(start_infec);
+            Map<TreeNode,Integer> visited = new HashMap();
+            visited.put(start_infec,1);
+            int time = 0;
+            while(!q.isEmpty()){
+                int sz = q.size();
+                int flag = 0;
+                for(int i = 0; i < sz ; i++){
+                    TreeNode curr = q.poll();
+                    if(curr.left != null && visited.get(curr.left) == null){
+                        flag = 1;
+                        visited.put(curr.left,1);
+                        q.offer(curr.left);
+                    }
+                    if(curr.right != null && visited.get(curr.right) == null){
+                        flag = 1;
+                        visited.put(curr.right,1);
+                        q.offer(curr.right);
+                    }
+                    if(map.get(curr) != null && visited.get(map.get(curr)) == null){
+                        flag = 1;
+                        visited.put(map.get(curr),1);
+                        q.offer(map.get(curr));
+                    }
                 }
-                if(curr.right != null && visited.get(curr.right) == null){
-                    flag = 1;
-                    visited.put(curr.right,1);
-                    q.offer(curr.right);
-                }
-                if(map.get(curr) != null && visited.get(map.get(curr)) == null){
-                    flag = 1;
-                    visited.put(map.get(curr),1);
-                    q.offer(map.get(curr));
-                }
+                if (flag == 1) time++;
             }
-            if (flag == 1) time++;
+            return time;
         }
-        return time;
     }
-}
+
     //solve using DFS
     /*Approach 2(DFS)
     Tree Traversal:
@@ -125,7 +125,7 @@ Explanation: At minute 0, the only node in the tree is infected so we return 0.
     Space complexity:
     O(n)O(n)O(n)
 */
-    class Solution {
+    class Solution2 {
         private int maxDistance = 0;
         private int depth = 0;
         public int amountOfTime(TreeNode root, int start) {
@@ -157,3 +157,5 @@ Explanation: At minute 0, the only node in the tree is infected so we return 0.
         }
     }
 }
+    
+    
