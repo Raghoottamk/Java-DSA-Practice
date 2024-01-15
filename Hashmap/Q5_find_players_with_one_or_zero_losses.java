@@ -43,6 +43,9 @@ public class Q5_find_players_with_one_or_zero_losses {
                 int loss = matches[i][1];
                 int value = map.get(loss) == null ? 0 : map.get(loss) ;
                 map.put(loss, ++value);
+                //or
+                //int loss = match[1];
+                //map.put(loss, map.getOrDefault(lose, 0) + 1);
             }
             //System.out.println(map);
             List<Integer> not_lost = new ArrayList<>();
