@@ -1,4 +1,4 @@
-public class L1_Build_BST {
+public class L1_Basics_BST {
     static class Node{
         int data;
         Node left;
@@ -28,6 +28,15 @@ public class L1_Build_BST {
         System.out.print(root.data + " ");
         inorder(root.right);
     }
+    public static boolean search(Node root,int key,int row,int col){
+        if(root == null) return false;
+        if(root.data == key){
+            System.out.println("key:" + key + " is found at " + "row:" + row + " " + "col:" + col);
+            return true;
+        }
+        if(root.data > key) return search(root.left,key,row + 1,col -1);
+        else return search(root.right,key,row + 1,col + 1);
+    }
     public static void main(String[] args) {
         int[] values = {5,1,3,4,2,7};
         Node root = null;
@@ -35,5 +44,7 @@ public class L1_Build_BST {
             root = insert(root, values[i]);
         }
         inorder(root);
+        System.out.println();
+        search(root, 7, 0,0);
     }
 }
