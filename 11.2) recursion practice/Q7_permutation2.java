@@ -63,16 +63,16 @@ public class Q7_permutation2 {
         private void backtrack4(List<List<Integer>> list, List<Integer> tempList, int [] nums, boolean []bool){
             if(tempList.size() == nums.length){
                 list.add(new ArrayList<>(tempList));
-            } else{
-                for(int i = 0; i < nums.length; i++){
-                    if(bool[i] || i > 0 && nums[i] == nums[i-1] && !bool[i - 1]) continue;
-                    bool[i] = true; 
-                    tempList.add(nums[i]);
-                    backtrack4(list, tempList, nums, bool);
-                    bool[i] = false; 
-                    tempList.remove(tempList.size() - 1);
-                }
+                return;
+            for(int i = 0; i < nums.length; i++){
+                if(bool[i] || i > 0 && nums[i] == nums[i-1] && !bool[i - 1]) continue;
+                bool[i] = true; 
+                tempList.add(nums[i]);
+                backtrack4(list, tempList, nums, bool);
+                bool[i] = false; 
+                tempList.remove(tempList.size() - 1);
             }
+            
         }
     }
 }
