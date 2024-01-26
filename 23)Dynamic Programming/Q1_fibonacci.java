@@ -31,14 +31,29 @@ Time Complexity: O(N)
 Space Complexity: O(N)
     Reason: We are using an external array of size ‘n+1’.
     */
-    static int tabulation(int n,int[] dp){
+    static void tabulation(int n,int[] dp){
         Arrays.fill(dp,-1);
         dp[0]= 0;
         dp[1]= 1;
         for(int i=2; i<=n; i++){
             dp[i] = dp[i-1]+ dp[i-2];
         }
-        return dp[n];
+        System.out.println(dp[n]);
+    }
+/*
+    --space optimization
+    
+ */
+    static void space_opti(int n){
+        int prev2 = 0;
+        int prev = 1;
+        
+        for(int i=2; i<=n; i++){
+            int cur_i = prev2+ prev;
+            prev2 = prev;
+            prev= cur_i;
+        }
+        System.out.println(prev);
     }
 
     public static void main(String[] args) {
@@ -58,9 +73,9 @@ Space Complexity: O(N)
 
         //tabulation
         int []dp2 = new int[n+1];
-        System.out.println(tabulation(n, dp2));
+        tabulation(n, dp2);
 
         //space optimization
-        
+        space_opti(n);
     }
 }
