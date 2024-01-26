@@ -23,6 +23,26 @@ public class Q8_merge_two_BST {
             list3.addAll(list1);
             list3.addAll(list2);
             Collections.sort(list3);
+            /*
+            optimized
+            int i = 0, j = 0;
+            while(i < list1.size() && j < list2.size() ){
+                if(list1.get(i) <= list2.get(j)){
+                    list3.add(list1.get(i));
+                    i++;
+                }
+                else{
+                    list3.add(list2.get(j));
+                    j++;
+                }
+            }
+            while(i < list1.size()){
+                list3.add(list1.get(i++));
+            }
+            while(j < list2.size()){
+                list3.add(list2.get(j++));
+            }
+             */
             return buildBST(list3 , 0 , list3.size() - 1);
         }
         private void inorder(TreeNode root,ArrayList<Integer> list){
