@@ -42,6 +42,15 @@ Space Complexity: O(N)
     }
 /*
     --space optimization
+If we closely look at the relation,
+dp[i] =  dp[i-1] + dp[i-2]
+
+we see that for any i, we do need only the last two values in the array. So is there a need to maintain a whole array for it? 
+The answer is ‘No’. Let us call dp[i-1] as prev and dp[i-2] as prev2. Now understand the following illustration.
+
+    step-1- Each iteration’s cur_i and prev becomes the next iteration’s prev and prev2 respectively.
+    step-2- herefore after calculating cur_i, if we update prev and prev2 according to the next step, we will always get the answer. 
+    step-3- After the iterative loop has ended we can simply return prev as our answer.
     
  */
     static void space_opti(int n){
