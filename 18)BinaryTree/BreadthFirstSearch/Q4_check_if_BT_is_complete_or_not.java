@@ -1,7 +1,13 @@
 import java.util.LinkedList;
 import java.util.Queue;
-
-public class Q34_check_if_BT_is_complete_or_not {
+class TreeNode{
+    int val;
+    TreeNode left,right;
+    TreeNode(int val,TreeNode left,TreeNode right){
+        this.val = val;this.left = left; this.right = right;
+    }
+}
+public class Q4_check_if_BT_is_complete_or_not {
 class Solution {
     public boolean isCompleteTree(TreeNode root) {
         Queue<TreeNode> q = new LinkedList<>();
