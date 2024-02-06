@@ -1,5 +1,6 @@
 import java.util.*;
 public class L2_insert_in_heap {
+    //basic operations in heap
     static class Heap{
         ArrayList<Integer> arr = new ArrayList<>();
 
