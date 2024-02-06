@@ -42,4 +42,21 @@ class Solution {
         return ans;
     }
 }
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+        for(var str : strs){
+            char[] count = new char[26];
+            for(var ch : str.toCharArray()){
+                count[ch - 'a']++;
+            }
+            String s = new String(count);
+            if(!map.containsKey(s)){
+                map.put(s,new ArrayList<>());
+            }
+            map.get(s).add(str);
+        }
+        return new ArrayList<>(map.values());
+    }
+}
 }
