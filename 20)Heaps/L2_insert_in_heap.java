@@ -8,7 +8,7 @@ public class L2_insert_in_heap {
             int x = arr.size()-1;//child index
             int par = (x-1)/2;//parent index
 
-            while(arr.get(x) > arr.get(par)){
+            while(arr.get(x) < arr.get(par)){
             //for max heap
             //while(arr.get(x) > arr.get(par))
                 //swap
@@ -49,12 +49,12 @@ public class L2_insert_in_heap {
             int right = 2*i + 2;
             int minIdx = i;
 
-            if(left < arr.size() && arr.get(minIdx) < arr.get(left)){
+            if(left < arr.size() && arr.get(minIdx) > arr.get(left)){
             //max heap
             //if(left < arr.size() && arr.get(minIdx) < arr.get(left)) 
                 minIdx = left;
             }
-            if(right < arr.size() && arr.get(minIdx) <  arr.get(right)){
+            if(right < arr.size() && arr.get(minIdx) > arr.get(right)){
             //max heap
             //if(right < arr.size() && arr.get(minIdx) < arr.get(right))
                 minIdx = right;
