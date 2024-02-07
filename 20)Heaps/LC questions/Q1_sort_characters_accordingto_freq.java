@@ -91,5 +91,40 @@ public class Q1_sort_characters_accordingto_freq {
                 return String.valueOf(sb);
             }
         }
+
+        //using comparator.reverseOrder();
+        class Pair implements Comparable<Pair>{
+            char first;
+            int second;
+            public Pair(char first,int second){
+                this.first = first;
+                this.second = second;
+            }
+            @Override
+            public int compareTo(Pair s2){
+                return this.second - s2.second;
+                //return this.name.compareTo(s2.name);//to compare names lexicographically
+            }
+        }
+        class Solution3 {
+            public String frequencySort(String s) {
+                Map<Character,Integer> map = new HashMap<>();
+                for(var ch : s.toCharArray()){
+                    map.put(ch,map.getOrDefault(ch,0) + 1);
+                }
+                PriorityQueue<Pair> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+                StringBuilder sb = new StringBuilder();
+                for(Map.Entry<Character,Integer> entry : map.entrySet()){
+                    maxHeap.add(new Pair(entry.getKey(),entry.getValue()));
+                }
+                while(!maxHeap.isEmpty()){
+                    Pair curr = maxHeap.remove();
+                    for(int i = 0; i < curr.second ; i++){
+                        sb.append(curr.first);
+                    }
+                }
+                return String.valueOf(sb);
+            }
+        }
     }
 }
