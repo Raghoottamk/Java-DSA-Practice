@@ -16,12 +16,10 @@ Output: 6
 Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
  */
 class Solution {
-
     public int countSubstrings(String s) {
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j >= 0; j--) {
-                int length = i - j + 1;
+            for (int j = 0; j <= i; j++) {
                 if (isPalindrome(s, j, i)) {
                     count++;
                 }
@@ -41,4 +39,5 @@ class Solution {
         return true;
     }
 }
+
 }
