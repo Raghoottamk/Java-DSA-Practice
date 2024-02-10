@@ -11,7 +11,7 @@ public class Q12_Generate_parenthesis {
       solve(list,open,close,op);
       return list;
    }
-   public void solve(List<String> list,int open,int close,String op){
+   public static void solve(List<String> list,int open,int close,String op){
          //base case
          if(open == 0 && close == 0){
             list.add(op);
