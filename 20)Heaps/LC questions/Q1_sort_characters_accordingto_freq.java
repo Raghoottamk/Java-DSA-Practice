@@ -68,16 +68,7 @@ public class Q1_sort_characters_accordingto_freq {
                 for(var ch : s.toCharArray()){
                     map.put(ch,map.getOrDefault(ch,0) + 1);
                 }
-                PriorityQueue<Pair> maxHeap = new PriorityQueue<>(new Comparator<Pair>() {
-                            public int compare(Pair a,Pair b)
-                            {
-                                if (a.second < b.second)
-                                    return 1;
-                                if (a.second > b.second)
-                                    return -1;
-                                return 0;
-                            }
-                        });
+                PriorityQueue<Pair> maxHeap = new PriorityQueue<>((p1,p2) -> p2.second - p1.second);
                 StringBuilder sb = new StringBuilder();
                 for(Map.Entry<Character,Integer> entry : map.entrySet()){
                     maxHeap.add(new Pair(entry.getKey(),entry.getValue()));
