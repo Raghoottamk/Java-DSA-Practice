@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.PriorityQueue;
-
+//https://leetcode.com/problems/maximize-happiness-of-selected-children/description/
 public class Q4_maximum_happiness_of_selected_children {
     //using priorityQueue
 class Solution {
